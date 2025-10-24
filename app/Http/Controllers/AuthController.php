@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -22,13 +23,13 @@ class AuthController extends Controller
         //validasi data
 
         $validateData = $request->validate([
-            'username' => 'required|max:255',
+            'name' => 'required|max:255',
             'email'    => 'required|email',
-            'password' => 'required:min:8|confirmed' , 
+            'password' => 'required:min:8|confirmed' ,
             'password_confirmation' => 'required'
         ] , [
-            'username.required' => 'Username wajib diisi',
-            'username.max' => 'Username maksimal 255 karakter',
+            'name.required' => 'Username wajib diisi',
+            'name.max' => 'Username maksimal 255 karakter',
             'email.required' => 'Email wajib diisi',
             'email.email' => 'Format email tidak valid',
             'email.unique' => 'Email sudah terdaftar',
@@ -39,7 +40,15 @@ class AuthController extends Controller
         ]);
 
 
-        dd($request->all());
+        $user = User::create([
+           'name' => $request->name,
+           'email'    => $request->email,
+           'password' => $request->password,
+           'password_confirmation' => $request->password_confirmation
+        ]);
+        $user->save();
+
+        return redirect()->route('login')->with('success' , 'registrasi berhasil silahakan login');
      }
 
 }

@@ -9,12 +9,12 @@ shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
     <form action="{{ route('regis.process') }}" method="POST" class="flex flex-col gap-3 m-3 p-1">
         @csrf
 
-        <label for="username" class="text-xl text-white text-start mx-4
+        <label for="name" class="text-xl text-white text-start mx-4
         font-monospace">Username</label>
-        <input type="text" name="username" id="username"
+        <input type="text" name="name" id="name"
         class="rounded-lg p-1 w-full border border-white focus:outline-none
         focus:ring-2  focus:ring-teal-300 p-2  focus:ring-opacity-50 bg-white bg-opacity-80"
-        value="{{ old('username') }}">
+        value="{{ old('name') }}">
         <div class="text-start">
    @error('username')
             <span class="text-red-500 text-sm mx-4">{{ $message }}</span>
