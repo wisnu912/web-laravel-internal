@@ -31,10 +31,10 @@
                 Login untuk mengakses Manajemen video Konten atau daftar jika Anda belum memiliki akun.
             </p>
             <div class="flex gap-4">
-                <a href="" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition">
+                <a href="{{ route('register') }}" class="bg-blue-500 cursor-pointer hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition">
                     Register
                 </a>
-                <a href="" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition">
+                <a href="{{ route('login') }}" class="bg-green-500 hover:bg-green-600 cursor-pointer text-white font-bold py-2 px-4 rounded transition">
                     Login
                 </a>
             </div>
