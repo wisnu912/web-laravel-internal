@@ -4,7 +4,7 @@
 @section('content')
 
 
-<div class="bg-gradient-to-r from-blue-400 via-teal-400 to-green-400
+<div class="bg-gradient-to-r from-gray-400  to-gray-600
 shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
     <form action="{{ route('regis.process') }}" method="POST" class="flex flex-col gap-3 m-3 p-1">
         @csrf
@@ -16,7 +16,7 @@ shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
         focus:ring-2  focus:ring-teal-300 p-2  focus:ring-opacity-50 bg-white bg-opacity-80"
         value="{{ old('name') }}">
         <div class="text-start">
-   @error('username')
+   @error('name')
             <span class="text-red-500 text-sm mx-4">{{ $message }}</span>
         @enderror
 
@@ -62,8 +62,8 @@ shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
 
 
             <div>
-                <button class="bg-teal-500 text-white text-lg
-                 w-full p-2 rounded-lg hover:bg-teal-600
+                <button class="bg-sky-300 text-white text-lg
+                 w-full p-2 rounded-lg hover:bg-sky-500
                 mt-8 cursor-pointer mb-5">Register</button>
             </div>
     </form>

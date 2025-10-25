@@ -3,7 +3,7 @@
 @section('title', 'login-page')
 @section('content')
 
-<div class="bg-gradient-to-r from-blue-400 via-teal-400 to-green-400
+<div class="bg-gradient-to-r from-gray-400  to-gray-600
 shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
 
 @if ($errors->any())
@@ -15,7 +15,8 @@ shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
         </ul>
     </div>
 @endif
-    <form action="{{ route('login.process') }}" method="POST" class="flex flex-col gap-3 m-3 p-1">
+    <form action="{{ route('login.process') }}" method="POST"
+    class="flex flex-col gap-3 m-3 p-1">
 
         @csrf
         <label for="email" class="text-xl text-white text-start mx-4 font-monospace">Email</label>
@@ -31,7 +32,7 @@ shadow-lg p-2 rounded-lg w-1/3 mx-auto mt-10">
 
 
             <div>
-                <button class="bg-teal-500 text-lg text-white w-full p-2 rounded-lg hover:bg-teal-600
+                <button class="bg-sky-300 text-lg text-white w-full p-2 rounded-lg hover:bg-teal-600
                 mt-8 cursor-pointer mb-5">Login</button>
             </div>
     </form>

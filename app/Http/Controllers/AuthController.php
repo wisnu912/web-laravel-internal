@@ -57,19 +57,25 @@ class AuthController extends Controller
 
         public function loginProcess(Request $request){
 
+            // validate input data
              $credentials = $request->validate([
                'email' => ['required' , 'email'],
                'password' => ['required']
              ]);
 
 
+        // check crendentials dan user login
            if (Auth::attempt($credentials)) {
+
+            //regenerate session
             $request->session()->regenerate();
 
+            // redirect ke halaman dashboard
             return redirect()->intended('dashboard');
         }
 
 
+        // jika gagal kembalikan ke halaman login dengan pesan erorr
          return back()->withErrors([
                 'email' => 'The provided credentials do not match our records'
             ])->onlyInput('email');
@@ -78,6 +84,7 @@ class AuthController extends Controller
     }
 
     public function Logout(Request $request){
+        //logout user
         Auth::logout();
 
         $request->session()->invalidate();
