@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('vidio');
-            $table->string('emoji');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

@@ -4,8 +4,10 @@
 @section('content')
 
 <div class="mx-10 ">
+    <a href="{{ route('create.video') }}">
    <button class="text-white bg-sky-500 text-base rounded-lg shadow-sm  p-2 cursor-pointer w-62
-    hover:bg-sky-700 focus:outline-2 focus:outline-offset-2 focus:outline-sky-500 active:bg-sky-700  ">Create Video</button>
+    hover:bg-sky-600">Create Video</button>
+     </a>
 </div>
 <div class="m-2 p-4 mt-8">
     <div class="overflow-x-auto rounded-lg shadow-lg bg-gradient-to-r from-blue-700 to-blue-900">
@@ -28,7 +30,7 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="hover:bg-blue-100 transition-colors duration-200">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-center">1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 text-start">1</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">VT Content</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm">
                         <a href="https://video/internai/detail" class="text-blue-600 hover:text-blue-800 underline transition-colors duration-200">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CrudController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,7 @@ Route::post('/login-process' , [AuthController::class , 'loginProcess'])
 ->name('login.process');
 Route::get('/logout' , [AuthController::class, 'logout'])
 ->name('logout');
-Route::get('/dashboard' , [DashboardController::class , 'index'])->name('dashboard');
+Route::get('/dashboard' , [DashboardController::class , 'index'])
+->name('dashboard');
+Route::get('/dashboard/create-video' , [CrudController::class , 'create'])
+->name('create.video');

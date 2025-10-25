@@ -9,6 +9,7 @@
 </head>
 <body>
 
+
     <nav class="bg-blue-600 p-4">
         <div class="container mx-auto flex justify-between items-center">
             <a href="/" class="text-white font-bold text-xl">MyApp</a>
@@ -19,7 +20,7 @@
         </div>
     </nav>
 
-    <div class="bg-gray-200 shadow-lg p-4 m-2 rounded-lg mt-12">
+    <div class=" m-2 rounded-lg mt-12">
         @yield('content')
     </div>
 
