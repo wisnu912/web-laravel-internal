@@ -11,7 +11,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('Dashboard.dashboard');
+        $video = upVideo::all();
+        return view('Dashboard.dashboard' , compact('video'));
     }
 
 
