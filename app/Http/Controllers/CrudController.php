@@ -39,13 +39,13 @@ class CrudController extends Controller
             'vidio.mimes' => 'Invalid Video Format'
         ]);
 
-         $fileName = $request->file('vidio')->getClientOriginalName();
-         $extension = $request->file('vidio')->getClientOriginalExtension();
+$file = $request->file('vidio');
+$extension = $file->getClientOriginalExtension();
+$fileName = 'Video-upload_' . time() . '_' . $request->user()->id . '.' . $extension;
+$path = $file->storeAs('video', $fileName, 'public');
 
-         $path = $request->file('vidio')->storeAs(
-         'vidieoss', $fileName . '.' . $extension . time());
 
-         $id = Auth::user()->id;
+       $id = Auth::user()->id;
 
        $createVideo = upVideo::create([
         'user_id' => $id,
@@ -53,7 +53,10 @@ class CrudController extends Controller
         'vidio' => $path
        ]);
 
-       return redirect()->route('dashboard')->with('success' , 'data berhasil create');
+      $createVideo->save();
+
+     return redirect()->route('dashboard');
+
 
     }
 

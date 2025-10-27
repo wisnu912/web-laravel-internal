@@ -3,10 +3,15 @@
 @section('title' , 'Dashboard')
 @section('content')
 
-<div class="mx-10 ">
+<div class="mx-10 flex gap-4 ">
     <a href="{{ route('create.video') }}">
    <button class="text-white bg-sky-500 text-base rounded-lg shadow-sm  p-2 cursor-pointer w-62
     hover:bg-sky-600">Create Video</button>
+     </a>
+
+      <a href="{{ route('all.video') }}">
+   <button class="text-white bg-teal-500 text-base rounded-lg shadow-sm  p-2 cursor-pointer w-62
+    hover:bg-teal-600">All video move</button>
      </a>
 </div>
 <div class="m-2 p-4 mt-8">

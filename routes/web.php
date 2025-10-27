@@ -24,3 +24,5 @@ Route::get('/dashboard/create-video' , [CrudController::class , 'create'])
 ->name('create.video');
 Route::post('/dashboard/store-video' , [CrudController::class , 'store'])
 ->name('store.video');
+Route::get('/dashboard/all-video-move' , [DashboardController::class  , 'allVideo'])
+->name('all.video');
