@@ -22,3 +22,5 @@ Route::get('/dashboard' , [DashboardController::class , 'index'])
 ->name('dashboard');
 Route::get('/dashboard/create-video' , [CrudController::class , 'create'])
 ->name('create.video');
+Route::post('/dashboard/store-video' , [CrudController::class , 'store'])
+->name('store.video');
