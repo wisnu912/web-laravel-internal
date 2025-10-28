@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -41,14 +42,13 @@ class AuthController extends Controller
         ]);
 
         //insert data ke table user
-        $user = User::create([
+        User::create([
            'name' => $request->name,
            'email'    => $request->email,
-           'password' => $request->password,
+           'password' => Hash::make($request->password),
            'password_confirmation' => $request->password_confirmation
         ]);
-        //save data user
-        $user->save();
+
 
         //rederict ke halaman login jika berhasil registrasi
         return redirect()->route('login')
