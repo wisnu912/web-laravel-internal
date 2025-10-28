@@ -10,16 +10,16 @@
 <body class="bg-gradient-to-r from-white  to-sky-200">
 
 
-    <div class="text-2xl  text-center text-bg-dark mt-30">
+    <div class="text-2xl  text-center text-bg-dark mt-10">
 
         {{-- check request login aau register --}}
         @if (Request::is('login'))
-             <h1 class="font-bold text-1xl">
+             <h1 class="font-bold text-base sm:text-sm md:text-xl lg:text-1xl ">
                 Login Untuk upload video
              </h1>
 
              @elseif (Request::is('register'))
-             <h1>
+             <h1 class="font-bold text-base sm:text-sm md:text-xl lg:text-1xl">
                 Register untuk membuat akun
              </h1>
         @endif
