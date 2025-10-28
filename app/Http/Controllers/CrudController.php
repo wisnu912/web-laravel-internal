@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\upVideo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CrudController extends Controller
 {
@@ -39,10 +40,10 @@ class CrudController extends Controller
             'vidio.mimes' => 'Invalid Video Format'
         ]);
 
-$file = $request->file('vidio');
-$extension = $file->getClientOriginalExtension();
-$fileName = 'Video-upload_' . time() . '_' . $request->user()->id . '.' . $extension;
-$path = $file->storeAs('video', $fileName, 'public');
+        $file = $request->file('vidio');
+        $extension = $file->getClientOriginalExtension();
+        $fileName = 'Video-upload_' . time() . '_' . $request->user()->id . '.' . $extension;
+        $path = $file->storeAs('video', $fileName, 'public');
 
 
        $id = Auth::user()->id;
@@ -89,6 +90,23 @@ $path = $file->storeAs('video', $fileName, 'public');
      */
     public function destroy(string $id)
     {
-        //
+        $data = upVideo::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('dashboard')
+        ->with('success' , 'data berhasil di hapus');
+    }
+
+    public function download($id)
+    {
+         $video = upVideo::findOrFail($id);
+         $filename = $video->vidio;
+
+
+    if (!Storage::disk('public')->exists($filename)) {
+        abort(404, 'File video tidak ditemukan');
+    }
+
+    return response()->download(Storage::disk('public')->path($filename));
     }
 }
